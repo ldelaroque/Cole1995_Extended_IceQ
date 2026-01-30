@@ -16,3 +16,19 @@ Intrinsic attenution models decribe the frequency-dependent viscoelastic respons
 This implementation targets conditions relevant to **icy satellites** and **planetary cryospheres**, bridging seismic (Hz) to tidal (mHz) frequency regimes.
 
 This model is consistent with laboratory- and field-derived attenuation measurements and reproduces published quality factors over a wide range of thermodynamic conditions.
+
+## Features
+
+Compute shear quality factor $Q_\mu^{-1}(\omega; T,P)$
+
+Validity:
+- Frequency range: 0.001-100 Hz
+- Temperature: 94-260 K
+- Pressure range: 0.1 (near-surface)-100 MPa (ice-ocean)
+
+Suitable for:
+- synthetic seismogram modeling,
+- depth-dependent attenuation profiles,
+- tidal dissipation studies in icy shells
+
+## References
