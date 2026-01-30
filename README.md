@@ -32,3 +32,12 @@ Suitable for:
 - tidal dissipation studies in icy shells
 
 ## References
+ If you use this code, please cite:
+ - Delaroque et al. 2026 - original developement of the Cole-SAS-Maxwell model
+Other usefule references:
+ - Cole et al. (2005) - background attenuation model
+ - Castillo et al. (2011) – proton orientation formulation included in the Cole-SAS-Maxwell model
+ - Cammarano et al. (2006); Tobie et al. (2005) - comparative attenuation models
+
+## Limitations
+The model is currently calibrated for **pure water ice (ice Ih)**. Certains paramètres des polymorphes de la glace (i.e., III, V, VI) ne sont pas extrapolables pour des conditions thermodyn [...]. Grain size, impurities, and partial melt effects are not explicitly included. Pressure dependence is parametrerized through activaiton volumes.
