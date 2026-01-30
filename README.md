@@ -34,6 +34,7 @@ Suitable for:
 ## References
  If you use this code, please cite:
  - Delaroque et al. 2026 - original developement of the Cole-SAS-Maxwell model
+
 Other usefule references:
  - Cole et al. (2005) - background attenuation model
  - Castillo et al. (2011) – proton orientation formulation included in the Cole-SAS-Maxwell model
