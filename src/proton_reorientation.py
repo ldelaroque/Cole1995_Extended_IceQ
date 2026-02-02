@@ -8,7 +8,7 @@ from .constants import R
 
 def tP_of_T(P, T, params):
     """Equation (58): relaxation time for proton reorientation (Vassouille 1974, Tatibouret 1981)"""
-    return params["tau0"] * np.exp((params["Em"]+P*params["V"])/(R*T)) / (params["c0"] + np.exp(-(params["Ef"]+P*params["V"])/(R*T)))
+    return params["tau_pr_0"] * np.exp((params["Em"]+P*params["V"])/(R*T)) / (params["c0"] + np.exp(-(params["Ef"]+P*params["V"])/(R*T)))
 
 
 def tan_delta_debye(T, P, f, params, tP):
@@ -29,7 +29,7 @@ def compute_Qmu_PR(P, T, f, params):
     omega = 2*np.pi*f
     
     # relaxation time tP(T)
-    tP = params["tau0"] * np.exp((params["Em"]+P*params["V"])/(R*T)) / (params["c0"] + np.exp(-(params["Ef"]+P*params["V"])/(R*T)))
+    tP = params["tau_pr_0"] * np.exp((params["Em"]+P*params["V"])/(R*T)) / (params["c0"] + np.exp(-(params["Ef"]+P*params["V"])/(R*T)))
 
     # tanδ_max empirical from Ep/(RT)
     tan_delta_max = (params["Ep"]+P*params["V"]) / (R * T)
