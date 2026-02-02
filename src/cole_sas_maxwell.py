@@ -32,7 +32,7 @@ def compute_qmu(P, T, f, params):
     # Dislocation-based relaxation mechanism
     s_d = np.log(tau_d * omega)
     # Storage compliance
-    D1_d =  params["dD_d"] * (1 - (2/np.pi) * np.arctan(np.exp(params["a_d"] * s_d))) 
+    D1_d = params["dD_d"] * (1 - (2/np.pi) * np.arctan(np.exp(params["a_d"] * s_d))) 
     # Loss compliance
     D2_d = params["a_d"] * params["dD_d"] / (np.exp(params["a_d"] * s_d) + np.exp(-params["a_d"] * s_d)) 
 
@@ -77,13 +77,15 @@ def combined_mechanisms(P, T, f, params, mechanisms=("D", "GBS", "PR")):
     """
 
     # Elastic compliance
-    omega = 2*np.pi*f
-    mu_E  = get_mu(T)
+    omega = 2 * np.pi * f
+    mu_E = get_mu(T)
 
-    D1_tot = 1 / mu_E
-    D2_tot = np.zeros_like(D1_tot)
+    # Elastic compliance
+    D1_el = 1.0 / mu_E
+    D1_tot = D1_el.copy()
+    D2_tot = np.zeros_like(D1_el)
 
-    # ---- Dislocation + GBS (Cole-SAS-Maxwell) ----
+    # Cole-SAS-Maxwell
     if "D" in mechanisms or "GBS" in mechanisms:
         D1_t, D2_t, D1_d, D1_gb, D2_d, D2_gb = compute_qmu(P, T, f, params)
 
@@ -95,12 +97,10 @@ def combined_mechanisms(P, T, f, params, mechanisms=("D", "GBS", "PR")):
             D1_tot += D1_gb
             D2_tot += D2_gb
 
-    # ---- Proton reorientation ----
+    # Proton reorientation (additive in Qinv)
     if "PR" in mechanisms:
         Qinv_pr = compute_Qmu_PR(P, T, f, params)
-        D2_tot += Qinv_pr * D1_tot
+        D2_tot += Qinv_pr * D1_el
 
-    # ---- Quality factor ----
     Qmu = D1_tot / D2_tot
-
     return Qmu, D1_tot, D2_tot
