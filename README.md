@@ -2,7 +2,7 @@
 
 ## Overview
 
-This reprository contains a reference implementation of the **Cole-SAS-Maxwell anelastic attenuation mode**, developed to computed frequency-, temperature-, and pressure-dependent shear attenuation $Q_\mu^{-1}(\omega; T,P)$ in **water ice (ice Ih)**.
+This reprository contains a reference implementation of the **Cole-SAS-Maxwell anelastic attenuation model**, developed to computed frequency-, temperature-, and pressure-dependent shear attenuation $Q_\mu^{-1}(\omega; T,P)$ in **water ice (ice Ih)**.
 
 The model integrated the dominant anelastic relaxation mechanisms relevant to planetary cryospheres, including:
 - **Proton reorientation**,
@@ -42,3 +42,8 @@ Other usefule references:
 
 ## Limitations
 The model is currently calibrated for **pure water ice (ice Ih)**. Certains paramètres des polymorphes de la glace (i.e., III, V, VI) ne sont pas extrapolables pour des conditions thermodyn [...]. Grain size, impurities, and partial melt effects are not explicitly included. Pressure dependence is parametrerized through activaiton volumes.
+
+## Contact
+Developed by Lorraine Delaroque
+Institut de Physique du Globe de Paris
+E-mail: delaroque .at. ipgp.fr
