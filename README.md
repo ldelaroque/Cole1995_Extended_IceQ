@@ -44,6 +44,6 @@ Other usefule references:
 The model is currently calibrated for **pure water ice (ice Ih)**. Certains paramètres des polymorphes de la glace (i.e., III, V, VI) ne sont pas extrapolables pour des conditions thermodyn [...]. Grain size, impurities, and partial melt effects are not explicitly included. Pressure dependence is parametrerized through activaiton volumes.
 
 ## Contact
-Developed by Lorraine Delaroque
-Institut de Physique du Globe de Paris
+Developed by Lorraine Delaroque \\
+Institut de Physique du Globe de Paris \\
 E-mail: delaroque .at. ipgp.fr
