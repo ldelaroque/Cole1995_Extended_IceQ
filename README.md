@@ -37,8 +37,8 @@ Suitable for:
 
 Other usefule references:
  - [Cole et al. (1995)](https://doi.org/10.1080/01418619508239592) - background attenuation model
- - Castillo et al. (2011) – proton orientation formulation included in the Cole-SAS-Maxwell model
- - Cammarano et al. (2006); Tobie et al. (2005) - comparative attenuation models
+ - [Castillo et al. (2011)](https://doi.org/10.1029/2010JE003664) – proton orientation formulation included in the Cole-SAS-Maxwell model
+ - [Cammarano et al. (2006)](https://doi.org/10.1029/2006JE002710); [Tobie et al. (2025)](https://doi.org/10.1007/s11214-025-01136-y) - comparative attenuation models
 
 ## Limitations
 The model is currently calibrated for **pure water ice (ice Ih)**. Certains paramètres des polymorphes de la glace (i.e., III, V, VI) ne sont pas extrapolables pour des conditions thermodyn [...]. Grain size, impurities, and partial melt effects are not explicitly included. Pressure dependence is parametrerized through activaiton volumes.
