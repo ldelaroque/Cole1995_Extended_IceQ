@@ -9,7 +9,6 @@ def saline_ice():
     return dict(
         eta = 1e22,                   # in Pa·s, shear viscosity
         V   = 10e-6,                  # in m3/mol, activation volume
-        P   = 100e6,
         # -- Dislocation parameters --
         B0    = 1.205e-9,             # in Pa·s, dislocation drag pre-exponential
         Q_d   = 0.54*conv,            # in eV, activation energy for dislocation (NB. valid from -10ºC to -50ºC, see Fig. A1)
