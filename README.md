@@ -19,7 +19,7 @@ This model is consistent with laboratory- and field-derived attenuation measurem
 
 ## Features
 
-Compute shear quality factor $Q_\mu^{-1}(\omega; T,P)$ for ice Ih.
+Compute the (seismic) shear quality factor $Q_\mu^{-1}(\omega; T,P)$ for ice Ih.
 
 Validity:
 - Frequency range: 0.001-100 Hz
