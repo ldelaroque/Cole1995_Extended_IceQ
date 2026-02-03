@@ -35,8 +35,8 @@ Suitable for:
 
 See the `examples/` directory [...]
 
-```
-from cole_sas_maxwell import Q_mu`
+```ruby
+from cole_sas_maxwell import Q_mu
 
 Q = Q_mu(frequency=1.0, temperature=200.0, pressure=10.0)`
 ```
