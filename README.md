@@ -31,6 +31,11 @@ Suitable for:
 - depth-dependent attenuation profiles,
 - tidal dissipation studies in icy shells
 
+## Usage
+
+[...]
+See the `examples/` directory [...]
+
 ## References
  If you use this code, please cite:
  - Delaroque et al. 2026 - original developement of the Cole-SAS-Maxwell model
