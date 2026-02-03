@@ -33,7 +33,7 @@ Suitable for:
 
 ## Usage
 
-[...]
+[...] \
 See the `examples/` directory [...]
 
 ## References
