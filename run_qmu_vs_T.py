@@ -21,14 +21,14 @@ from src.rheology import get_mu
 
 # Temperature and frequency grids
 T = temperature_grid(93.15, 268.15, 500)
-f = 1.0                    # Hz
-omega = 2 * np.pi * f
+f = 1.0                    # in Hz
+omega = 2*np.pi*f          # in rad/s
 
 # Pressure names are defined such that:
 # 1. Pressure at near-surface (0.1 MPa)
 # 2. Pressure representative of ice-ocean boundary (~100 MPa)
-P_low = 0.1   # MPa
-P_high = 100  # MPa
+P_low  = 0.1e6  
+P_high = 100e6  
 
 # Conversion factor
 conv = 96485.33212  # eV → J/mol 
@@ -55,7 +55,7 @@ param_sets = {
     # Proton reorientation (PR)
     "c_0"       : np.linspace(5e-8, 1e-7, 30),
     "tau_pr_0"  : np.linspace(1.7e-16, 6.9e-16, 30),
-    "Em"        : np.linspace(30e3, 35e3, 30),
+    "Em"        : np.linspace(30e3, 35e3, 30), 
 }
 
 # Nominal PR values
@@ -87,7 +87,7 @@ for param_name, values in param_sets.items():
         params[param_name] = val
 
         # --- Mear-surface pressure ---
-        Qmu, D1t, D2t = combined_mechanisms(P=0.1*1e6, T=T, f=f, params=params, mechanisms=("D", "GBS", "PR"))
+        Qmu, D1t, D2t = combined_mechanisms(P=P_low, T=T, f=f, params=params, mechanisms=("D", "GBS", "PR"))
 
         PR_vals = PR_nominal.copy()
         if param_name in PR_vals:
@@ -97,7 +97,7 @@ for param_name, values in param_sets.items():
         curves_LP.append(Q_total)
 
         # --- Ice-ocean boundary pressure ---
-        Qmu_hp, D1t_hp, D2t_hp = combined_mechanisms(P=100*1e6, T=T, f=f, params=params, mechanisms=("D", "GBS", "PR"))
+        Qmu_hp, D1t_hp, D2t_hp = combined_mechanisms(P=P_high, T=T, f=f, params=params, mechanisms=("D", "GBS", "PR"))
         Q_total_hp = np.abs(1.0 / Qmu_hp) 
         curves_HP.append(Q_total_hp)
 
@@ -108,10 +108,9 @@ curves_HP = np.array(curves_HP)
 mean_curve_lp = np.vstack([curves_LP]).mean(axis=0)
 mean_curve_hp = np.vstack([curves_HP]).mean(axis=0)
 
-
-# ================
-# === PLOTTING ===
-# ================
+# ======================================================
+# ==================== PLOTTING ========================
+# ======================================================
 
 fig, ax = plt.subplots(figsize=(6, 4))
 
