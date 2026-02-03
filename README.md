@@ -33,8 +33,13 @@ Suitable for:
 
 ## Usage
 
-[...] \
 See the `examples/` directory [...]
+
+```
+from cole_sas_maxwell import Q_mu`
+
+Q = Q_mu(frequency=1.0, temperature=200.0, pressure=10.0)`
+```
 
 ## References
  If you use this code, please cite:
