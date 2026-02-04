@@ -8,11 +8,11 @@ conv = 96485.33212
 def saline_ice():
     return dict(
         eta   = 1e22,                 # in Pa·s, shear viscosity
-        V     = 6e-6,                 # in m3/mol, activation volume [CHANGED]
+        V     = 10e-6,                # in m3/mol, activation volume
         P     = 100e6,
         # -- Dislocation parameters --
         B0    = 1.205e-9,             # in Pa·s, dislocation drag pre-exponential
-        Q_d   = 0.54*conv,            # in eV, activation energy for dislocation (NB. valid from -10ºC to -50ºC, see Fig. A1)
+        E_d   = 0.54*conv,            # in eV, activation energy for dislocation (NB. valid from -10ºC to -50ºC, see Fig. A1)
         K     = 0.07,                 # in Pa, restoring stress
         dD_d  = 1.4e-9,               # in Pa⁻¹, max ampli
         a_d   = 0.54,                 # Debye-type peak width at LF
@@ -20,15 +20,15 @@ def saline_ice():
         b     = 4.52e-10,             # in m, Burger's vector. NB. depends on the crystalline structure
         # -- Grain boundary parameters --
         tau_gb_0 = 8e-28,             # in s, relaxation time
-        Q_gb     = 1.32*conv,         # in eV, activation energy for grain-boundary. Provient orginellement de l'article de Tatibouret (1987) 
+        E_gb     = 1.32*conv,         # in eV, activation energy for grain-boundary. Provient orginellement de l'article de Tatibouret (1987) 
                                       # sur de la glace pure, car pas de valeur fiable pour la glace saline selon Cole (1995)
         dD_gb    = 3e-11,             # in Pa⁻¹, max ampli
         a_gb     = 0.6,               # Debye-type peak width at HF
         D_u_gb   = 1.5e-10,
         # -- PR mechanism parameters --
-        Em       = 30e3,              # in J/mol, Bjerrum detects'energies of migration [CHANGED]
+        Em       = 30e3,              # in J/mol, Bjerrum detects'energies of migration
         Ef       = 25e3,              # in J/mol, Bjerrum detects'energies of formation
-        Ep       = 25e3,              # in J/mol (for tanδ_max empirical)
+        Ep       = 25e3,              # in J/mol, PR activation energy (for tanδ_max empirical)
         tau_pr_0 = 6e-16,             # in s (Tatibouet et al. 1981)
-        c0       = 5e-8               # reference concentration of extrinsic defects [CHANGED]
+        c0       = 1e-7               # reference concentration of extrinsic defects
     )
