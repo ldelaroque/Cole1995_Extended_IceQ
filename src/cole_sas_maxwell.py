@@ -98,7 +98,7 @@ def combined_mechanisms(P, T, f, params, mechanisms=("D", "GBS", "PR")):
             D1_tot += D1_gb
             D2_tot += D2_gb
 
-    # Proton reorientation (additive in Qinv)
+    # Proton reorientation (additive in Q-1)
     if "PR" in mechanisms:
         Qinv_pr = compute_Qmu_PR(P, T, f, params)
         D2_tot += Qinv_pr * D1_el
