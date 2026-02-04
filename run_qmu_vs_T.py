@@ -21,7 +21,7 @@ from src.rheology import get_mu
 
 # Temperature and frequency grids
 T = temperature_grid(93.15, 268.15, 500)
-f = 1.0                    # in Hz
+f = 1                      # in Hz
 omega = 2*np.pi*f          # in rad/s
 
 # Pressure names are defined such that:
@@ -30,7 +30,8 @@ omega = 2*np.pi*f          # in rad/s
 P_low  = 0.1e6  
 P_high = 100e6  
 
-# Conversion factor
+# Conversion factor. In Cole (1995), data are given in eV. So need a conversion
+# for D and GBS activation energies
 conv = 96485.33212  # eV → J/mol 
 
 # ======================================================
@@ -40,14 +41,14 @@ conv = 96485.33212  # eV → J/mol
 param_sets = {
     # Dislocation (D)
     "alpha_d"  : np.linspace(0.50, 0.60, 30),
-    "Q_d"      : np.linspace(0.55 * conv, 0.65 * conv, 30),
+    "E_d"      : np.linspace(0.55 * conv, 0.65 * conv, 30),
     "deltaD_d" : np.linspace(1.7e-10, 2.23e-8, 30),
     "B0"       : np.linspace(1.205e-11, 1.205e-9, 30),
     "D_u_d"    : np.linspace(5.0e-11, 5.0e-10, 30),
 
     # Grain boundary sliding (GBS)
     "alpha_gb" : np.linspace(0.50, 0.60, 30),
-    "Q_gb"     : np.linspace(1.26 * conv, 1.38 * conv, 30),
+    "E_gb"     : np.linspace(1.26 * conv, 1.38 * conv, 30),
     "deltaD_gb": np.linspace(3.0e-12, 9.0e-12, 30),
     "tau_gb0"  : np.linspace(8.0e-28, 2.7e-27, 30),
     "D_u_gb"   : np.linspace(1.5e-10, 5.0e-10, 30),
@@ -55,11 +56,11 @@ param_sets = {
     # Proton reorientation (PR)
     "c_0"       : np.linspace(5e-8, 1e-7, 30),
     "tau_pr_0"  : np.linspace(1.7e-16, 6.9e-16, 30),
-    "Em"        : np.linspace(30e3, 35e3, 30), 
+    "Em"        : np.linspace(24e3, 30e3, 30), 
 }
 
 # Nominal PR values
-PR_nominal = dict(c_0=5e-8, tau_pr_0=6e-16, Em=30e3)
+PR_nominal = dict(c_0=1e-7, tau_pr_0=6e-16, Em=30e3)
 
 
 # ======================================================
@@ -105,13 +106,14 @@ for param_name, values in param_sets.items():
 curves_LP = np.array(curves_LP)
 curves_HP = np.array(curves_HP)
 
-mean_curve_lp = np.vstack([curves_LP]).mean(axis=0)
-mean_curve_hp = np.vstack([curves_HP]).mean(axis=0)
+mean_curve_lp = curves_LP.mean(axis=0)
+mean_curve_hp = curves_HP.mean(axis=0)
 
 # ======================================================
 # ==================== PLOTTING ========================
 # ======================================================
 
+# --- Shear attenuation Qμ^-1 ---
 fig, ax = plt.subplots(figsize=(6, 4))
 
 for i, c in enumerate(curves_LP):
@@ -130,6 +132,33 @@ ax.set_xlabel("Temperature [K]", fontsize=14)
 ax.set_ylabel(r"Shear attenuation $Q_\mu^{-1}$", fontsize=14)
 ax.set_xlim([93.15, 268.15])
 ax.set_ylim([0, 0.1])
+ax.invert_xaxis()
+ax.grid(True, linestyle=":", color='lightgray')
+ax.legend(frameon=False)
+
+plt.tight_layout()
+plt.show()
+
+
+# --- Shear quality factor Qμ ---
+fig, ax = plt.subplots(figsize=(6, 4))
+
+for i, c in enumerate(curves_LP):
+    ax.semilogy(T, 1/c, color="gray", alpha=0.2, label=r"$Q_\mu$(P=0.1 MPa)" if i == 0 else None)
+
+for i, c in enumerate(curves_HP):
+    ax.semilogy(T, 1/c, color="lightgray", alpha=0.2, linestyle="--", label=r"$Q_\mu$(P=100 MPa)" if i == 0 else None)
+
+ax.semilogy(T, 1/mean_curve_lp, color="red", lw=2, label=r"$\langle Q_\mu \rangle$ (P=0.1 MPa)")
+ax.semilogy(T, 1/mean_curve_hp, color="red", lw=2, ls="--", label=r"$\langle Q_\mu \rangle$ (P=100 MPa)")
+
+ax.semilogy(T, 1/Qinv_Cammarano, "--", label="Cammarano et al. 2006", color="#00cc00")
+ax.semilogy(T, 1/Qinv_Tobie, "--", label="Tobie et al. 2025", color="#00ccff")
+
+ax.set_xlabel("Temperature [K]", fontsize=14)
+ax.set_ylabel(r"Shear quality factor $Q_\mu$", fontsize=14)
+ax.set_xlim([93.15, 268.15])
+ax.set_ylim([1, 1e4])
 ax.invert_xaxis()
 ax.grid(True, linestyle=":", color='lightgray')
 ax.legend(frameon=False)
