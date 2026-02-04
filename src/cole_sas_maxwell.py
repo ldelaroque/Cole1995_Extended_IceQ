@@ -2,6 +2,7 @@
 
 # -- Import librairies --
 import numpy as np
+import matplotlib.pyplot as plt
 from .rheology import get_mu
 from .constants import R
 from .proton_reorientation import compute_Qmu_PR
@@ -21,12 +22,12 @@ def compute_qmu(P, T, f, params):
     kE = get_mu(T)
 
     # Temperature-dependant dislocation drag
-    B_T_d = params["B0"] * np.exp((params["Q_d"]+P*params["V"]) / (R * T))   # partial second units
+    B_T_d = params["B0"] * np.exp((params["E_d"]+P*params["V"]) / (R * T))   # partial second units
     # Relaxation time for dislocation sliding
     tau_d = B_T_d / params["K"]
 
     # Relaxation time for GBS
-    tau_gb = params["tau_gb_0"] * np.exp((params["Q_gb"]+P*params["V"])/ (R * T))
+    tau_gb = params["tau_gb_0"] * np.exp((params["E_gb"]+P*params["V"])/ (R * T))
 
     # FIRST MECHANISM - DISLOCATION
     # Dislocation-based relaxation mechanism
