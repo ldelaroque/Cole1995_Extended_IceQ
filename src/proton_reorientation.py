@@ -33,6 +33,7 @@ def compute_Qmu_PR(P, T, f, params):
 
     # tanδ_max empirical from Ep/(RT)
     tan_delta_max = (params["Ep"]+P*params["V"]) / (R * T)
+    # Debye type peak is controled by ω⋅τP(P,T)~1
     x = omega * tP
     tan_delta = 2.0 * tan_delta_max * (x / (1.0 + x**2))
     
