@@ -35,6 +35,13 @@ Suitable for:
 
 ## Usage
 
+Create the environement:
+
+```ruby
+conda env create -f environment.yml
+conda activate mon_env
+```
+
 Run the model located in the main directory with:
 
 ```ruby
