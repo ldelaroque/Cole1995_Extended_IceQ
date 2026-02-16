@@ -33,7 +33,7 @@ Suitable for:
 
 ## Usage
 
-Run the model with:
+Run the model located in the main directory with:
 
 ```ruby
 python run_qmu_vs_T.py
