@@ -33,16 +33,24 @@ Suitable for:
 - depth-dependent attenuation profiles,
 - tidal dissipation studies in icy shells
 
-## Usage
+## Run
+# Installation
 
-Create the environement:
+Create the conda environement:
 
 ```ruby
 conda env create -f environment.yml
 conda activate mon_env
 ```
 
-Run the model located in the main directory with:
+Install the project in editable mode:
+
+```ruby
+pip intall -e .
+```
+# Usage
+
+Run the model from the project root directory:
 
 ```ruby
 python run_qmu_vs_T.py
