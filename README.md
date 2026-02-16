@@ -49,7 +49,9 @@ Other usefule references:
  - [Cammarano et al. (2006)](https://doi.org/10.1029/2006JE002710); [Tobie et al. (2025)](https://doi.org/10.1007/s11214-025-01136-y) - comparative attenuation models
 
 ## Limitations
-The model is currently calibrated for **pure water ice (ice Ih)**. Certains paramètres des polymorphes de la glace (i.e., III, V, VI) ne sont pas extrapolables pour des conditions thermodyn [...]. Grain size, impurities, and partial melt effects are not explicitly included. Pressure dependence is parametrerized through activaiton volumes.
+The model is currently calibrated for **pure water ice (ice Ih)**. Some parameters associated with high-pressure ice polymorphs (e.g.., III, V, VI) cannot be idrectly extrapolated to thermodynamic conditions comparable to those of ice Ih. \
+Grain size, impurities, and partial melt effects are not explicitly included. \
+Pressure dependence is parametrerized through activation volumes.
 
 ## Contact
 Developed by **Lorraine Delaroque** \
