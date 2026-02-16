@@ -46,6 +46,7 @@ python run_qmu_vs_T.py
 Other usefule references:
  - [Cole et al. (1995)](https://doi.org/10.1080/01418619508239592) - background attenuation model
  - [Castillo et al. (2011)](https://doi.org/10.1029/2010JE003664) – proton orientation formulation included in the Cole-SAS-Maxwell model
+ - [Tobie et al. (2025)](https://doi.org/10.1007/s11214-025-01136-y) - Maxwell term for a best fit of low frequencies
  - [Cammarano et al. (2006)](https://doi.org/10.1029/2006JE002710); [Tobie et al. (2025)](https://doi.org/10.1007/s11214-025-01136-y) - comparative attenuation models
 
 ## Limitations
