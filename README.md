@@ -75,5 +75,5 @@ Pressure dependence is parametrerized using activation volumes.
 
 ## Contact
 Developed by **Lorraine Delaroque** \
-*Institut de Physique du Globe de Paris* \
+*Institut de Physique du Globe de Paris, U. Paris Cité* \
 E-mail: delaroque .at. ipgp.fr
