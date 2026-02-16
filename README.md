@@ -33,8 +33,8 @@ Suitable for:
 - depth-dependent attenuation profiles,
 - tidal dissipation studies in icy shells
 
-## Run
-# Installation
+## Run 
+### Installation
 
 Create the conda environement:
 
@@ -48,7 +48,7 @@ Install the project in editable mode:
 ```ruby
 pip intall -e .
 ```
-# Usage
+### Usage
 
 Run the model from the project root directory:
 
