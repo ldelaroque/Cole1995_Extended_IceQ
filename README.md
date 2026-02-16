@@ -24,8 +24,8 @@ Compute the (seismic) shear quality factor $Q_\mu^{-1}(\omega; T,P)$ for ice Ih.
 **Validity**$^*$:
 - Frequency range: 0.001-300 Hz
 - Temperature: 94-260 K
-- Pressure range: 0.1 (near-surface)-100 MPa (ice-ocean)
-\* Tested against data under all conditions except $P$ = 100 MPa.
+- Pressure range: 0.1 (near-surface)-100 MPa (ice-ocean) \
+* Tested against data under all conditions except *P* = 100 MPa.
 
 Suitable for:
 - synthetic seismogram modeling,
