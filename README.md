@@ -33,12 +33,10 @@ Suitable for:
 
 ## Usage
 
-See the `examples/` directory [...]
+Run the model with:
 
 ```ruby
-from cole_sas_maxwell import Q_mu
-
-Q = Q_mu(frequency=1.0, temperature=200.0, pressure=10.0)`
+python run_qmu_vs_T.py
 ```
 
 ## References
