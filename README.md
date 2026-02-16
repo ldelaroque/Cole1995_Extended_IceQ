@@ -40,7 +40,7 @@ Create the conda environement:
 
 ```ruby
 conda env create -f environment.yml
-conda activate mon_env
+conda activate qmu-env
 ```
 
 Install the project in editable mode:
